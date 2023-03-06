@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page isELIgnored="false" %> 
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -15,8 +16,7 @@
 			<form:label path="score" >score</form:label>
 			<form:input path="score" type="number" required="required"/><br>
 			
-			<form:label path="createdBy">createdBy</form:label>
-			<form:input path="createdBy" type="number" required="required"/><br>
+			<form:input path="createdBy" type="hidden" required="required"/><br>
 			
 			<form:label path="dueDate">Joining Date</form:label>
 			<form:input path="dueDate" type="date" required="required" min="${todayDate}"/><br>

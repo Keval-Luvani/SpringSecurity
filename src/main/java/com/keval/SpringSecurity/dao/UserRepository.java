@@ -8,4 +8,6 @@ import com.keval.SpringSecurity.model.User;
 @Component
 public interface UserRepository extends JpaRepository<User, Integer> {
 
+	public User getByEmail(String email);
+
 }

@@ -3,6 +3,7 @@ package com.keval.SpringSecurity.dao;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.keval.SpringSecurity.model.User;
@@ -12,6 +13,8 @@ public class UserDaoImpl implements UserDao {
 	
 	@Autowired
 	UserRepository userRepository;
+	@Autowired 
+	private BCryptPasswordEncoder passwordEncoder;
 	
 	public List<User> getUsers() {		
 		return userRepository.findAll();
@@ -22,6 +25,9 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	public void createUser(User user) {
+		if(user.getId()==0) {
+			user.setPassword(passwordEncoder.encode(user.getPassword()));
+		}
 		userRepository.save(user);
 	}
 

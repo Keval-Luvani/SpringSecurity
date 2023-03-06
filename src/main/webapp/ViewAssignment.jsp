@@ -3,10 +3,10 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <html>
    	<head>
-       <title>Employees</title>
+       <title>Assignments</title>
     </head>
     <body>
-       <h1>Employee Data</h1>
+       <h1>Assignments Data</h1>
        <table BORDER="1">
 	      <tr>
 		      <th>ID</th>
