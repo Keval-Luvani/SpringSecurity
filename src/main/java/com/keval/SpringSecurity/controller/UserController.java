@@ -1,6 +1,7 @@
 package com.keval.SpringSecurity.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -23,18 +24,21 @@ public class UserController {
 		return "../ViewUser.jsp";
 	}
 	
-	@RequestMapping("/create")
+	
+	@RequestMapping("/register")
 	public String createPage(Model model) {
 		model.addAttribute("user",new User());
 		return "../UserEntry.jsp";
 	}
 	
+	@PreAuthorize("hasRole('ADMIN')")
 	@RequestMapping("/update{userId}")
 	public String updatePage(Model model,@PathVariable int userId) {
 		model.addAttribute("user",userServiceImpl.getUser(userId));
 		return "../UserEntry.jsp";
 	}
 	
+	@PreAuthorize("hasRole('ADMIN')")
 	@RequestMapping("/delete{userId}")
 	public String deleteUser(@PathVariable int userId) {
 		userServiceImpl.deleteUser(userId);

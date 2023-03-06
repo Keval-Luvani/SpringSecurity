@@ -28,6 +28,6 @@
     		</tr>
 		  </c:forEach>
 	   </table>
-       <a href='<c:url value="create"></c:url>'>Create User</a>	
+       <a href='<c:url value="register"></c:url>'>Register User</a>	
      </body>
 </html>
