@@ -32,8 +32,8 @@
 		<form:label path="role" required="required">Role</form:label>
 		<form:radiobutton path="role" value="ROLE_STUDENT" label="student" />
 		<form:radiobutton path="role" value="ROLE_TEACHER" label="teacher" /><br>
-
 		<form:button>Submit</form:button>
 	</form:form>
+	<span style="color:red">${error}</span>
 </body>
 </html>

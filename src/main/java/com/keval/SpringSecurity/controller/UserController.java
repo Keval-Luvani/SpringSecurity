@@ -44,8 +44,12 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/submit", method= RequestMethod.POST)
-	public String createUser(@ModelAttribute() User user) {
+	public String createUser(@ModelAttribute() User user,Model model) {
 		if(user.getId()==0) {
+			if(userServiceImpl.getUsers().stream().anyMatch(num -> num.getEmail().equals(user.getEmail()))) {
+				model.addAttribute("error","user already exists");
+				return "../UserEntry.jsp";
+			}
 			userServiceImpl.createUser(user);
 		}else {
 			userServiceImpl.updateUser(user);
