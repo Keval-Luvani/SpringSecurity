@@ -33,7 +33,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter{
 			.authenticated()
 			.and()
 			.formLogin()
-			.defaultSuccessUrl("/user/view");
+			.defaultSuccessUrl("/assignment/view");
 	}
 
 	@Override

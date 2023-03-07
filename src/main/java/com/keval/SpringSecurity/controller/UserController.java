@@ -19,7 +19,6 @@ public class UserController {
 	@Autowired
 	UserService userServiceImpl; 
 	
-	
 	@RequestMapping("/view")
 	public String viewUsers(Model model) {
 		model.addAttribute("userList",userServiceImpl.getUsers());

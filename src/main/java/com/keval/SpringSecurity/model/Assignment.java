@@ -45,10 +45,4 @@ public class Assignment {
 	public void setScore(int score) {
 		this.score = score;
 	}
-	@Override
-	public String toString() {
-		return "Assignment [id=" + id + ", title=" + title + ", createdBy=" + createdBy + ", dueDate=" + dueDate
-				+ ", score=" + score + "]";
-	}
-	
 }
