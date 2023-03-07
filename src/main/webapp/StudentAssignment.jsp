@@ -13,21 +13,15 @@
 		      <th>Title</th>
 		      <th>Score</th>
 		      <th>Due Date</th>
-		      <th>Action</th>
 	      </tr>
 	      <c:forEach items="${assignmentList}" var="assignment" varStatus="row">
     		<tr>
         	   <td>${row.count}</td>
 		       <td>${assignment.getTitle()}</td>	
 		       <td>${assignment.getScore()} </td>
-		       <td>${assignment.getDueDate()} </td>
-		       <td>
-		       	 <a href='<c:url value="update${assignment.getId()}"></c:url>'>Update</a>
-		         <a href='<c:url value="delete${assignment.getId()}"></c:url>'>Delete</a>
-		       </td>  
+		       <td>${assignment.getDueDate()} </td>  
     		</tr>
 		  </c:forEach>
-	   </table>
-       <a href='<c:url value="create"></c:url>'>Create Assignment</a>	
+	   </table>	
      </body>
 </html>

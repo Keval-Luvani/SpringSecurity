@@ -16,10 +16,10 @@
 			<form:label path="score" >score</form:label>
 			<form:input path="score" type="number" required="required"/><br>
 			
-			<form:input path="createdBy" type="hidden" required="required"/><br>
+			<form:input path="createdBy" type="hidden" required="required"/>
 			
 			<form:label path="dueDate">Joining Date</form:label>
-			<form:input path="dueDate" type="date" required="required" min="${todayDate}"/><br>
+			<form:input path="dueDate" type="date" min="${todayDate}" required="required" /><br>
 			
 			<form:button>Submit</form:button>
 		</form:form>

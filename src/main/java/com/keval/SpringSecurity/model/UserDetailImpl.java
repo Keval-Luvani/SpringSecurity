@@ -8,7 +8,9 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public class UserDetailImpl implements UserDetails {
-
+	
+	private static final long serialVersionUID = 1L;
+	
 	private User user;
 	
 	public UserDetailImpl (User user) {
@@ -20,11 +22,6 @@ public class UserDetailImpl implements UserDetails {
 		HashSet<SimpleGrantedAuthority> set = new HashSet<>();
 		set.add(new SimpleGrantedAuthority(this.user.getRole()));
 		return set;
-	}
-
-	@Override
-	public String toString() {
-		return "UserDetailImpl [user=" + user + "]";
 	}
 
 	public User getUser() {

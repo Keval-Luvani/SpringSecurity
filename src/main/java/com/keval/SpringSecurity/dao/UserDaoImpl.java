@@ -25,9 +25,7 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	public void createUser(User user) {
-		if(user.getId()==0) {
-			user.setPassword(passwordEncoder.encode(user.getPassword()));
-		}
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		userRepository.save(user);
 	}
 

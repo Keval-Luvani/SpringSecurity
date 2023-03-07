@@ -18,7 +18,6 @@ public class UserServiceImpl implements UserService{
 		return userDaoImpl.getUsers();
 	}
 
-	
 	public User getUser(int userId) {
 		return userDaoImpl.getUser(userId);
 	}

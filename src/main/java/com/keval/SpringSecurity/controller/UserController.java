@@ -13,10 +13,12 @@ import com.keval.SpringSecurity.model.User;
 import com.keval.SpringSecurity.service.UserService;
 
 @Controller
+@PreAuthorize("hasRole('ADMIN')")
 @RequestMapping("/user")
 public class UserController {
 	@Autowired
 	UserService userServiceImpl; 
+	
 	
 	@RequestMapping("/view")
 	public String viewUsers(Model model) {
@@ -24,21 +26,18 @@ public class UserController {
 		return "../ViewUser.jsp";
 	}
 	
-	
 	@RequestMapping("/register")
 	public String createPage(Model model) {
 		model.addAttribute("user",new User());
 		return "../UserEntry.jsp";
 	}
 	
-	@PreAuthorize("hasRole('ADMIN')")
 	@RequestMapping("/update{userId}")
 	public String updatePage(Model model,@PathVariable int userId) {
 		model.addAttribute("user",userServiceImpl.getUser(userId));
 		return "../UserEntry.jsp";
 	}
 	
-	@PreAuthorize("hasRole('ADMIN')")
 	@RequestMapping("/delete{userId}")
 	public String deleteUser(@PathVariable int userId) {
 		userServiceImpl.deleteUser(userId);
@@ -47,7 +46,11 @@ public class UserController {
 	
 	@RequestMapping(value="/submit", method= RequestMethod.POST)
 	public String createUser(@ModelAttribute() User user) {
-		userServiceImpl.createUser(user);
+		if(user.getId()==0) {
+			userServiceImpl.createUser(user);
+		}else {
+			userServiceImpl.updateUser(user);
+		}
 		return "redirect:/user/view";
 	}
 }
